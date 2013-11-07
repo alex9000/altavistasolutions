@@ -1,0 +1,65 @@
+/* 7/22/13 Brian V.
+ * Adding specific directives so the scrollorama jquery plugin will work as expected. Slightly verbose...
+ */
+
+.about-us, .leadership, .services, .projects{
+	overflow:visible;
+}
+
+#about-left, 
+#about-right,
+#leadership-left, 
+#leadership-right,
+#services-left, 
+#services-right,
+#projects-left, 
+#projects-right{
+	.box-sizing(border-box);
+}
+
+.leadership{
+	position: relative;
+	overflow: visible;
+}
+
+.leadership img{
+	position: absolute;
+	top: 120px;
+	right: -50px;
+	z-index: 10;
+}
+
+
+.about-us,
+.services {
+position:relative;
+}
+
+
+
+#about-left, #about-right {
+	position:relative;
+}
+
+#leadership-left, #leadership-right {
+	position: relative;
+}
+
+.services img {
+ position: absolute;
+top: 45px;
+}
+
+#services-left, #services-right {
+	position: relative;
+	z-index: 20;
+}
+
+.projects {
+	margin: 250px 0 50px 0;
+}
+
+#projects-left, #projects-right {
+	position: relative;
+}
+

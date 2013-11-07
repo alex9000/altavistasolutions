@@ -1,0 +1,911 @@
+//
+// AVS stylesheet
+// --------------------------------------------------
+
+@bodyfontcolor: #fff;
+@bodybackgroundcolor: #666;
+@bodyfontweight: 300;
+
+@navlinkcolor: #666;
+
+@blurbbackground: #000;
+@seehowcolor: #ff3300;
+@learnmorecolor: #66ccff;
+@learnmorecolorhover: #ff3300;
+
+@blurbbackgroundheader: #fff;
+@blurbbackgroundbodycolor: #2e7dbc;
+@blurbpaddingtopbottom: 24px;
+@blurbpaddingleftright: 32px;
+@blurbbackgroundopacity: 0.95;
+@blurbboxheight: auto;
+@blurbheaderheight: 91px;
+
+@ensuretotalheight: 161px;
+@ensurepaddingtop: 24px;
+
+@fontSizeHome: @baseFontSize * 1.71; // ~24px
+
+@paddingLeft: 32px;
+
+/* Generic declarations.*/
+body {
+  visibility: hidden;
+  visibility: visible;
+  background-color: @bodybackgroundcolor;
+  color: @bodyfontcolor;
+  font-family: 'Open Sans', sans-serif;
+}
+
+a,
+a:hover{
+  text-decoration: none;
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+  background-color: transparent;
+}
+
+p{
+	margin: 0 0 @paddingLeft 0;
+  color: @bodyfontcolor;
+  font-weight: @bodyfontweight;
+	font-size: @baseFontSize;
+	line-height: 1.5;
+	letter-spacing: 1px;
+}
+
+h1 {
+  margin: 0;
+  background-color: #fff;
+  color: #000;
+  font-weight: 300;
+  font-size: 55px;
+  line-height: .8;
+}
+
+small {
+	font-size: 10px;
+}
+
+em {
+color: @gold;
+font-style: normal;
+}
+
+ul {
+	letter-spacing: 1px;
+	font-weight: 300;
+	margin-bottom: 40px;
+}
+/*End of generic declarations.*/
+
+
+/*Start of misc style declarations*/
+.containerbackground(@imageurl:"../images/homepage-background.jpg"){
+    margin-right: auto;
+    margin-left: auto;
+    width:1170px;
+    height:auto;
+    background-image: url(@imageurl);
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+
+}
+
+.home #background{
+	 .containerbackground();
+}
+/* About Us */
+.page-about #background{
+	 .containerbackground('../images/about-back.jpg');
+}
+/* Leadership */
+.post-type-archive-leadership #background{
+  .containerbackground('../images/leadership_back.jpg');
+	background-color: #000;
+}
+/* Services */
+.single-services #background{
+  .containerbackground('../images/services_background.jpg');
+	background-color: #233239;
+}
+
+.services-quality-management #background{
+  .containerbackground('../images/services/services_1.jpg');
+}
+
+.services-program-management #background{
+  .containerbackground('../images/services/services_2.jpg');
+}
+
+.services-surveying #background{
+  .containerbackground('../images/services/services_3.jpg');
+}
+
+.services-inspection-testing #background{
+  .containerbackground('../images/services/services_4.jpg');
+}
+
+.services-structural-instrumentation-monitoring #background{
+  .containerbackground('../images/services/services_5.jpg');
+}
+
+/* Projects */
+.single-projects #background{
+  .containerbackground('../images/projects_background.jpg');
+	background-color: #233239;
+}
+
+/* Resources, Careers */
+.post-type-archive-resources #background,
+.post-type-archive-careers #background,
+.post-type-archive-contact #background,
+.error404 #background,
+.page-template-default #background
+{
+  background-color: #555;
+	width: 1170px;
+	margin: auto;
+}
+
+.contact #background{
+  .containerbackground('../images/alta_vista_contact.jpg');
+}
+
+/* Homepage */
+.home p{
+	font-size: @fontSizeHome;
+}
+
+.services, .projects, .leadership{
+  min-height: 91px;
+}
+
+.learn-more{
+  padding-bottom: 32px;
+  /* NOTE: Less was overiding these learnmorecolor settings for some reason... So, added !important to force the issue Brian V*/
+  color: @learnmorecolor;
+}
+
+
+#group-shot{
+ .containerbackground();
+ 	background-position: 0px -656px;
+	width: 1170px;
+	height: 665px;
+	position: absolute;
+	top: 190px;
+	left: -30px;
+	-webkit-filter: grayscale(1); /* Chrome */
+	 filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
+	filter: gray; /* IE6-9 */
+}
+
+.lt-ie9 #group-shot{
+	display: none;
+}
+
+.front-page-blurb{
+	display: table;
+  padding: @blurbpaddingtopbottom @blurbpaddingleftright 6px @blurbpaddingleftright; 
+ 	padding: 28px 32px;
+  /*height:@blurbboxheight - @blurbpaddingtopbottom;*/
+  height: @blurbboxheight;
+  background-color: @blurbbackgroundbodycolor;
+  color: #000;
+  font-size: 22px;
+  line-height:1.75em;
+  opacity: 0.95;
+}
+.front-page-blurb p {
+	display: table-cell;
+	vertical-align: middle; 
+}
+
+
+/*Start of navigation related styles.*/
+.navbar{
+	margin: 0;
+}
+.navbar-inner{
+	position: relative;
+  margin:0px;
+	padding: 0;
+	height: 100px;
+	border: 0;
+	border-radius: 0;
+  background-color: #fff;
+  color: @navlinkcolor;
+}
+
+/* Scott Kellum Image Replacement Method */
+.skm{
+	position: absolute;
+	overflow: hidden;
+	width: 495px;
+	height: 100px;
+	background: url('../images/avs_logo.png') no-repeat;
+	text-indent: 100%;
+	white-space: nowrap;
+}
+
+.skm a {
+	display:block;
+	width: 100%;
+	height: 100%;
+}
+
+.nav{
+  margin-right: 50px;
+  font-weight: 300;
+}
+.navbar .nav > .active > a, 
+.navbar .nav > .active > a:hover, 
+.navbar .nav > .active > a:focus {
+	box-shadow: none;
+	color: @gold;
+	background-color:@navbarLinkBackgroundActive;
+}
+
+.nav-list>.active>a, 
+.nav-list>.active>a:hover, 
+.nav-list>.active>a:focus {
+	background-color:@navbarLinkBackgroundActive;
+}
+
+
+/* Secondary Navigation*/
+.secondary-nav{
+  margin-top:15px;
+  color: #666;
+  font-size: 12px;
+}
+.secondary-nav li{
+position:relative;
+}
+.secondary-nav li+li:before{
+position: absolute;
+top: 8px;
+content: "|";
+}
+
+
+/* Primary Navigation*/
+
+.navbar .primary-nav{
+	margin-top: 20px;
+  letter-spacing: 2px;
+  font-size: 22px;
+}
+
+.single-projects .navbar .primary-nav > .menu-item-object-projects > a,
+.single-services .navbar .primary-nav > .menu-item-object-services > a {
+	color: @navbarLinkColorActive;
+}
+
+.primary-not-last{
+  padding-right:25px;
+}
+
+.nav-pills > li > a {
+	margin-right: 0;
+	padding: 0 0;
+}
+
+.primary-nav > li > a {
+	padding: 0 10px;
+	letter-spacing:0; 
+}
+
+/*End of navigation related styles.*/
+
+/*Start of do right related styles*/
+
+.leading-blurb{
+  margin-top: 81px;
+  min-height:124px;
+ position: relative;
+}
+
+.ensure{
+	.box-sizing(border-box);
+	display: table;
+	padding-left: 19px;
+  min-height: @ensuretotalheight - @ensurepaddingtop;
+	height: 161px;
+  background-color: #000;
+  opacity: 0.85;
+  /*padding-top: @ensurepaddingtop;*/
+  p{
+		display: table-cell;
+		vertical-align: middle;
+    line-height: 1.25em;
+  }
+}
+
+.see-how{
+  padding-top: 15px;
+  color: @blurbbackgroundbodycolor;
+  text-align: right;
+  font-weight: 600;
+  font-size: 19px;
+}
+.see-how:hover{
+  color:@seehowcolor;
+}
+
+@dorightheight: 124px;
+@dorightheightpaddingtop: 20px;
+
+.front-movie{
+  padding-top: @dorightheightpaddingtop;
+  height: @dorightheight - @dorightheightpaddingtop;
+	text-align: center;
+}
+
+.close {
+	color: #FFF;
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+
+
+.modal {
+	position: absolute;
+	margin-left: -555px;
+	width: auto;
+	border: none;
+	background-color: transparent;
+}
+
+.modal-header {
+	border-bottom: none;
+}
+
+.modal-body {
+max-height: 645px;
+padding: 0;
+}
+
+.modal.fade.in {
+	top: -180px;
+}
+
+iframe {
+	border: none;
+}
+
+.do-right{
+  .box-sizing(border-box);
+  padding-top: @dorightheightpaddingtop;
+  padding-right: @blurbpaddingleftright;
+  background-color: @blurbbackgroundheader;
+  text-align: right;
+/*  min-height:@dorightheight - @dorightheightpaddingtop; */
+	height: 124px;
+	a{
+    color:@blurbbackgroundbodycolor;
+  }
+	a:hover {
+		color: @linkColorHover;
+	}
+	p {
+		font-size: @fontSizeLarge;
+	}
+	
+}
+/*End of do right related styles*/
+
+/*About us related styles*/
+
+/*Prevent scrollrama flash onload*/
+#about-left, 
+#about-right,
+#leadership-right,
+#leadership-left
+ {
+	visibility:hidden;
+}
+
+#about-left h1{
+  margin-top: 75px;
+  padding-left: @blurbpaddingleftright;
+  background-color: transparent;
+  color:#fff;
+  /*(text-shadow: 0.051em 0em  0.2em #000;*/
+}
+
+#about-right{
+  padding-left: @blurbpaddingleftright;
+  background-color: @blurbbackgroundbodycolor;
+  opacity: @blurbbackgroundopacity;
+}
+/*End of About us related styles*/
+
+/*Start of leadership related styles*/
+
+#leadership-right{
+  margin-top: 319px;
+  padding: @blurbpaddingtopbottom @blurbpaddingleftright @blurbpaddingtopbottom @blurbpaddingleftright;
+  background-color:@blurbbackgroundheader;
+}
+#leadership-left {
+	padding-right: 232px;
+  background-color: @blurbbackgroundbodycolor;
+  /*TODO: Move leadership heads out and to the right a bit. However, as of 6/18, we don't have final image*/
+  opacity: 0.95;
+}
+/*End of leadership related styles*/
+
+/*Start of Services related styles*/
+.services{
+  min-height: @blurbheaderheight;
+  background-position: 0 48px;
+  background-repeat: no-repeat;
+}
+
+#services-left{
+  margin-top: 94px;
+  padding: @blurbpaddingtopbottom @blurbpaddingleftright @blurbpaddingtopbottom @blurbpaddingleftright;
+  background-color: @blurbbackgroundheader;
+}
+
+#services-right{
+
+}
+
+/*End of Services related styles*/
+
+
+/*Start of Projects related styles*/
+
+#project-graphic{
+  /*TODO: Get details from designer as to just how it is envisoned to work/look once fpo image is gone*/
+  
+  /*background-image: url('../images/sas_fpo.png');
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  min-height: 365px;
+  padding-top:35px;*/
+}
+
+.projects{
+  min-height: @blurbheaderheight;
+}
+
+#projects-right{
+  padding: @blurbpaddingtopbottom @blurbpaddingleftright @blurbpaddingtopbottom @blurbpaddingleftright;
+  background-color: @blurbbackgroundheader;
+}
+#projects-left{
+  padding: @blurbpaddingtopbottom @blurbpaddingleftright @blurbpaddingtopbottom @blurbpaddingleftright;
+
+}
+
+/*End of projects related styles*/
+
+
+/* Footer Styles */
+
+.footer{
+	.box-sizing(border-box);
+  margin-top:70px;
+  /*padding: @blurbpaddingtopbottom @blurbpaddingleftright @blurbpaddingtopbottom 0;*/
+  padding-top: @blurbpaddingtopbottom;
+  min-height:245px;
+  background-color: @blurbbackgroundheader;
+  color: @gray;
+ 	 
+	a,
+	a:active {
+		color: @navlinkcolor;
+	}
+	a:hover {
+		color: @gold;
+	}
+	p{
+		margin: 0 0 10px;
+		color: @gray;
+		font-size: @fontSizeLarge;
+	}
+	
+
+  .tweets{
+    min-height: 164px;
+    background-color: #fff;
+  }
+
+	.e-entry-title {
+		color: red;
+	}
+	
+  legend{
+    border: none;
+    color: @gray;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+  }
+	.social{
+		 .box-sizing(border-box);
+		padding-left: 24px;
+	}
+	
+	.footer-titles{
+		margin-top: 40px;
+	}
+	
+	.navbar .nav {
+			margin: 48px 0 0 0;
+		.box-sizing(border-box);
+	}
+	
+	ul{
+		padding: 0 0 0 24px;
+		font-size: @fontSizeMini;
+	}
+	
+	.nav-pills > li > a {
+		padding: 0 10px;
+	}
+	.nav > li:first-child > a {
+		padding-left: 0;
+	}
+	
+	.smallprint p {
+		padding: 0 24px;
+	}
+	
+	#mc_mv_EMAIL {
+		width: 284px;
+	}
+	.mc_signup_submit,
+	.mc_var_label { 
+		display:none;
+	}
+	
+	.wpi-link {
+		color: @linkColor;
+	}
+	.avs-logo-footer{
+			padding-left: 24px;
+	}
+}
+
+.ie9 .footer .navbar .nav,
+.ie8 .footer .navbar .nav, {
+		margin: 35px 0 0 0;
+}
+
+/*End of footer related styles*/
+
+/*General Page template styles*/
+.entry-title{
+	.box-sizing(border-box);
+	margin: 0 0 40px 0;
+	padding: 0 32px;
+	height: 80px;
+	background: @black;
+	color: @white;
+	font-weight: 300;
+	font-size: 40px;
+	line-height: 80px;
+	opacity:0.85;
+	filter:alpha(opacity=85); /* For IE8 and earlier */
+}
+
+.sidebar p{
+	font-size: @baseFontSize;
+	 margin: 20px 0;
+
+}
+
+.intro p{
+	font-size: @fontSizeLarge;
+	margin-top: 40px;
+}
+
+
+/* About page*/
+.page-about .intro p {
+	margin-top: 0;
+}
+.page-about {
+	h2{
+		margin: 0 0 36px 0;
+		padding: 0 32px;
+		width: 350px;
+		height: 61px;
+		background: @white;
+		color: #333;
+		font-weight: 300;
+		font-size: 25px;
+		line-height: 61px;
+	}
+}
+
+/* Accordion */ 
+.accordion-heading .accordion-toggle{
+	padding: 0 @paddingLeft;
+}
+.accordion p {
+	font-size: @baseFontSize;
+	color: @grayDark;
+	margin: 40px 32px;
+}
+
+.accordion-group {
+	margin-bottom: 8px;
+	border: none;
+	background-color: @btnBorder;
+	color: @grayDark;
+	font-size: 10px;
+}
+
+.accordion-inner{
+	padding: 0;
+}
+
+.accordion h3 {
+	position: relative;
+	margin: 0;
+	height: 64px;
+	background: @white;
+	color: @grayDark;
+	font-weight: 300;
+	font-size: 23px;
+	white-space: nowrap; /* paragraph to one line */
+	overflow:hidden; /* older browsers */
+	text-overflow: ellipsis; /* will make [...] at the end */
+}
+
+.accordion h3 span {
+	font-weight: 300;
+	font-size: @baseFontSize;
+	position:absolute;
+	left: 32px;
+	top: 25px;
+}
+
+.accordion-inner img{
+	padding: 40px 32px;
+}
+
+.icon-chevron-down,
+.icon-chevron-up
+ {
+	position: absolute;
+	right: 10px;
+	bottom: 5px;
+}
+
+/* Leadership and Resources page*/
+
+.big-header {
+	margin: 0;
+	height: 90px;
+	font-weight: 300;
+	font-size: 40px;
+	line-height: 90px;
+}
+
+.bio {
+	.box-sizing(border-box);
+}
+.accordion {
+	.download {
+		a{color:@orange;}
+		margin-top: -40px;
+	}
+}
+	
+/* Services Template */
+.single-services .intro p{
+	margin-left: 32px;
+}
+
+.bottom .span12{
+background-color: @white;
+}
+.bottom h2 {
+margin: 32px 0 17px 0;
+color: @gold;
+font-weight: 300;
+font-size: 25px;
+line-height: 25px;
+}
+.bottom ul li,
+.bottom p {
+color: @grayDark;
+}
+
+.bottom ul li{
+line-height: 2;
+}
+.bottom p {
+line-height: 1.5;
+}
+
+/* Projects Template */
+
+.nav-list{
+	.box-sizing(border-box);
+	margin: 36px 0 0 0;
+	padding: 15px 40px;
+	width: 100%;
+	background: @grayDark;
+	color: @white;
+	line-height: 36px;
+	li {
+		position: relative;
+	}
+}
+.nav-list > li > a {
+display: inline-block;
+}
+.nav-list li.active:before{
+position: absolute;
+top: 3px;
+left: -15px;
+color: @gold;
+content: "\002022 ";
+}
+.nav-list > .active > a, 
+.nav-list > .active > a:hover, 
+.nav-list > .active > a:focus {
+/*background-color: transparent;*/
+color: @gold;
+text-shadow: none;
+}
+
+.navbar .nav > li > a:focus, 
+.navbar .nav > li > a:hover  {
+/*background-color: transparent;*/
+text-decoration: none;
+color: @gold;
+}
+
+
+
+.nav-list a:hover {
+color: @gold;
+}
+.nav-list > li > a{
+margin-right: -15px;
+margin-left: -15px;
+text-shadow: none !important;
+}
+.nav-list a, 
+.nav-list a:active{
+color: @white;
+}
+.carousel {
+margin-bottom: 40px;
+}
+.carousel-indicators li{
+display: inline-block;
+float: none;
+}
+
+.carousel-control{
+top:45%;
+left: -35px;
+height: 140px;
+width: 140px;
+.border-radius(50%);
+.box-sizing(border-box);
+line-height: 120px;
+font-size: 100px;
+border: none;
+background: transparent;
+}
+
+.carousel-control span.ang { display: inline; }
+.carousel-control span.ang_ie { display: none; }
+.ie8 .carousel-control span.ang { display: none; }
+.ie8 .carousel-control span.ang_ie { display: inline; }
+
+.carousel-control.right {
+	right: -35px;
+}
+
+.carousel-caption p {
+font-size: @fontSizeMini;
+}
+
+/* Careers */
+.post-type-archive-careers #content .intro p {
+font-size: @fontSizeLarge;
+margin: 0 0 20px 32px;
+}
+
+.post-type-archive-careers #content p,
+.post-type-archive-careers #content ul{
+font-size: @baseFontSize;
+}
+
+.post-type-archive-careers .accordion p {
+margin: 20px 32px;
+}
+
+.post-type-archive-careers .accordion ul {
+margin: 0 32px 0 49px;
+}
+
+.employee p {
+margin: 20px 32px;
+}
+
+.employee hr {
+	color: #CCC;
+margin: 20px 0;
+}
+
+.employee .eoe {
+margin: 20px 0;
+}
+
+.post-type-archive-careers .sidebar ul {
+margin: 0 32px 0 18px;
+}
+
+.post-type-archive-careers .accordion h3 {
+	font-size: @fontSizeLarge;
+}
+
+aside h3 {
+	font-weight: 300;
+}
+
+
+/* Resources */
+
+.post-type-archive-resources .accordion h3 {
+	font-size: @fontSizeLarge;
+}
+
+/* Projects */
+.single-projects .intro p{
+margin: 0 0 40px 32px
+	
+}
+
+.single-projects blockquote {
+	border-left: none;
+}
+
+.single-projects blockquote p {
+	font-size: 28px;
+font-style: italic;
+color: @gold;
+line-height: 1.2;
+}
+
+.source{
+font-size: @baseFontSize;
+display: block;
+margin-top: 10px;
+}
+
+/* Terms of Use */
+.page-terms p{
+font-size: @baseFontSize;
+}
+
+/* Sitemap */
+.page-sitemap #primary a {
+color: @white;
+}
+
+.page-sitemap #primary li {
+margin: 0 0 28px;
+}
+
+.page-sitemap #primary ul ul {
+padding-top: 28px;
+padding-left: 1em;
+border-left: 1px solid white;
+list-style-type: none;
+}
